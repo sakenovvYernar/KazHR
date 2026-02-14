@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Комната собеседования - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/interview-room.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="flex-between">
+        <div class="logo">
+          <h2>🚀 KazHR.AI</h2>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <button onclick="utils.logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Join Screen -->
+  <div id="joinScreen" class="join-screen">
+    <div class="container">
+      <div class="join-card card">
+        <div class="card-header text-center">
+          <h2>🎥 Вход в комнату собеседования</h2>
+          <p>Введите код для присоединения к собеседованию</p>
+        </div>
+        <div class="card-body">
+          <form id="joinForm">
+            <div class="form-group">
+              <label for="interviewCode">Код собеседования</label>
+              <input type="text" id="interviewCode" name="interviewCode" 
+                     class="form-control" placeholder="XXXXXX" maxlength="6" 
+                     style="text-transform: uppercase; letter-spacing: 2px; text-align: center; font-size: 1.5rem;" required>
+            </div>
+            <div class="form-group">
+              <label for="participantName">Ваше имя</label>
+              <input type="text" id="participantName" name="participantName" 
+                     class="form-control" placeholder="Введите ваше имя" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Присоединиться к собеседованию</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interview Room -->
+  <div id="interviewRoom" class="interview-room" style="display: none;">
+    <div class="interview-header">
+      <div class="container">
+        <div class="flex-between">
+          <div class="interview-info">
+            <h3>Собеседование</h3>
+            <p>Код: <span id="roomCode" class="room-code"></span></p>
+            <p>Статус: <span id="connectionStatus" class="connection-status">Подключение...</span></p>
+          </div>
+          <div class="interview-controls">
+            <button id="muteBtn" onclick="toggleMute()" class="btn btn-outline">🔊</button>
+            <button id="videoBtn" onclick="toggleVideo()" class="btn btn-outline">📹</button>
+            <button id="screenShareBtn" onclick="toggleScreenShare()" class="btn btn-outline">🖥️</button>
+            <button id="recordBtn" onclick="toggleRecording()" class="btn btn-danger">⏺️ Запись</button>
+          </div>
+          <div class="interview-actions">
+            <button onclick="endCall()" class="btn btn-danger btn-lg end-call-btn">
+              📞 Завершить звонок
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interview-main">
+      <div class="container">
+        <div class="grid grid-3">
+          <!-- Main Video Area -->
+          <div class="col-2">
+            <div class="video-container">
+              <video id="localVideo" class="video-element" autoplay muted playsinline></video>
+              <video id="remoteVideo" class="video-element" autoplay playsinline></video>
+              
+              <!-- Connection indicators -->
+              <div id="connectionIndicators" class="connection-indicators">
+                <div class="indicator" id="audioIndicator">🔇</div>
+                <div class="indicator" id="videoIndicator">📵</div>
+                <div class="indicator" id="networkIndicator">📶</div>
+              </div>
+              
+              <!-- Recording indicator -->
+              <div id="recordingIndicator" class="recording-indicator" style="display: none;">
+                <span class="recording-dot"></span>
+                <span>Идет запись</span>
+              </div>
+              
+              <!-- Quick end call button -->
+              <button onclick="endCall()" class="quick-end-call-btn">
+                📞
+              </button>
+            </div>
+
+            <!-- AI Analysis Panel -->
+            <div class="ai-panel card mt-4">
+              <div class="card-header">
+                <h4>🤖 AI Анализ собеседования</h4>
+                <button onclick="toggleAIAnalysis()" class="btn btn-sm btn-outline">Пауза</button>
+              </div>
+              <div class="card-body">
+                <div id="aiAnalysis">
+                  <div class="analysis-placeholder">
+                    <p>AI анализ начнется автоматически во время собеседования</p>
+                  </div>
+                </div>
+                
+                <!-- Real-time transcription -->
+                <div class="transcription-panel">
+                  <h5>📝 Транскрипция</h5>
+                  <div id="transcriptionText" class="transcription-text">
+                    <p class="transcription-placeholder">Транскрипция появится здесь...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Panel -->
+          <div class="col-1">
+            <!-- Participants -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Участники</h4>
+              </div>
+              <div class="card-body">
+                <div id="participantsList">
+                  <div class="participant-item">
+                    <div class="participant-avatar">👤</div>
+                    <div class="participant-info">
+                      <p id="localName">Вы</p>
+                      <span class="badge badge-success">В комнате</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat -->
+            <div class="card">
+              <div class="card-header">
+                <h4>💬 Чат</h4>
+              </div>
+              <div class="card-body">
+                <div id="chatMessages" class="chat-messages">
+                  <div class="chat-placeholder">
+                    <p>Чат собеседования</p>
+                  </div>
+                </div>
+                <div class="chat-input">
+                  <input type="text" id="messageInput" placeholder="Введите сообщение..." 
+                         onkeypress="if(event.key === 'Enter') sendMessage()">
+                  <button onclick="sendMessage()" class="btn btn-primary btn-sm">Отправить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interview Timer -->
+    <div class="interview-timer">
+      <div class="container">
+        <div class="timer-display">
+          <span>⏱️ Длительность: </span>
+          <span id="timer">00:00:00</span>
+          <span id="recordingTime" style="display: none;"> | Запись: <span id="recordingDuration">00:00:00</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/interview-room.js"></script>
+</body>
+</html>

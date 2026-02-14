@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card card">
+      <div class="auth-header text-center">
+        <h1>🚀 KazHR.AI</h1>
+        <h2>Create Account</h2>
+        <p>Join the AI-powered recruitment platform</p>
+      </div>
+
+      <div id="alert-container"></div>
+
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label class="form-label">I am a:</label>
+          <div class="role-selector">
+            <label class="role-option">
+              <input type="radio" name="role" value="jobseeker" required>
+              <div class="role-card">
+                <div class="role-icon">👤</div>
+                <h3>Job Seeker</h3>
+                <p>Looking for opportunities</p>
+              </div>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="employer" required>
+              <div class="role-card">
+                <div class="role-icon">🏢</div>
+                <h3>Employer</h3>
+                <p>Hiring talent</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            class="form-control" 
+            placeholder="John Doe"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            placeholder="your@email.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            placeholder="Min. 6 characters"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <!-- Job Seeker specific fields -->
+        <div id="jobseekerFields" class="conditional-fields hidden">
+          <div class="form-group">
+            <label for="skills" class="form-label">Skills (comma separated)</label>
+            <input 
+              type="text" 
+              id="skills" 
+              class="form-control" 
+              placeholder="e.g., Python, JavaScript, MongoDB"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="experience" class="form-label">Years of Experience</label>
+            <input 
+              type="number" 
+              id="experience" 
+              class="form-control" 
+              min="0"
+              placeholder="0"
+            >
+          </div>
+        </div>
+
+        <!-- Employer specific fields -->
+        <div id="employerFields" class="conditional-fields hidden">
+          <div class="form-group">
+            <label for="companyName" class="form-label">Company Name</label>
+            <input 
+              type="text" 
+              id="companyName" 
+              class="form-control" 
+              placeholder="Your Company Name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="companyDescription" class="form-label">Company Description</label>
+            <textarea 
+              id="companyDescription" 
+              class="form-control" 
+              placeholder="Brief description of your company"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          Create Account
+        </button>
+      </form>
+
+      <div class="auth-footer text-center mt-3">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+        <p class="mt-2"><a href="../index.html">← Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/register.js"></script>
+</body>
+</html>

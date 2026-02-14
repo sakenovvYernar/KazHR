@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Jobs - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/jobs.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="flex-between">
+        <div class="logo">
+          <h2>🚀 KazHR.AI</h2>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <button onclick="utils.logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="page-header mb-4">
+      <h1>Browse Jobs</h1>
+      <p>Find your perfect match with AI-powered recommendations</p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="card mb-4">
+      <div class="search-filters">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="form-control" 
+          placeholder="Search jobs by title..."
+        >
+        <input 
+          type="text" 
+          id="locationInput" 
+          class="form-control" 
+          placeholder="Location"
+        >
+        <button onclick="searchJobs()" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+
+    <!-- Jobs Container -->
+    <div id="jobsContainer">
+      <div class="text-center p-4">
+        <div class="spinner mx-auto"></div>
+        <p class="mt-2">Loading jobs...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/video-call-nav.js"></script>
+  <script src="../scripts/jobs.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кандидаты - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/candidates.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="flex-between">
+        <div class="logo">
+          <h2>🚀 KazHR.AI</h2>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <button onclick="utils.logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="page-header mb-4">
+      <h1>Кандидаты</h1>
+      <p>Найдите лучших кандидатов для ваших вакансий</p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="search-filters">
+          <input type="text" id="searchInput" class="form-control" placeholder="Поиск кандидатов..." onkeyup="filterCandidates()">
+          <select id="skillsFilter" class="form-control" onchange="filterCandidates()">
+            <option value="">Все навыки</option>
+            <option value="javascript">JavaScript</option>
+            <option value="react">React</option>
+            <option value="nodejs">Node.js</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+          </select>
+          <select id="experienceFilter" class="form-control" onchange="filterCandidates()">
+            <option value="">Любой опыт</option>
+            <option value="no-experience">Без опыта</option>
+            <option value="1-3">1-3 года</option>
+            <option value="3-5">3-5 лет</option>
+            <option value="5-plus">Более 5 лет</option>
+          </select>
+          <select id="locationFilter" class="form-control" onchange="filterCandidates()">
+            <option value="">Все города</option>
+            <option value="almaty">Алматы</option>
+            <option value="astana">Астана</option>
+            <option value="shymkent">Шымкент</option>
+            <option value="remote">Удаленно</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-4 mb-4">
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="totalCandidatesCount">0</div>
+        <div class="stat-label">Всего кандидатов</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="newCandidatesCount">0</div>
+        <div class="stat-label">Новые кандидаты</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="highMatchCount">0</div>
+        <div class="stat-label">Высокая совместимость</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="interviewsCount">0</div>
+        <div class="stat-label">Назначено интервью</div>
+      </div>
+    </div>
+
+    <!-- Candidates Grid -->
+    <div id="candidatesContainer">
+      <div class="text-center p-4">
+        <div class="spinner mx-auto"></div>
+        <p class="mt-2">Загрузка кандидатов...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/candidates.js"></script>
+</body>
+</html>

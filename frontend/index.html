@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KazHR.AI - AI-платформа рекрутинга для Казахстана</title>
+  <meta name="description" content="Революционная AI-платформа для поиска работы и найма талантов в Казахстане">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/landing.css">
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="showPage('home')">
+        <div class="logo-icon">KZ</div>
+        KazHR.AI
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#features">Возможности</a></li>
+        <li><a href="#how-it-works">Как работает</a></li>
+        <li><a href="#stats">Статистика</a></li>
+        <li><a href="pages/login.html" class="btn btn-secondary btn-sm">Войти</a></li>
+        <li><a href="pages/register.html" class="btn btn-primary btn-sm">Начать</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge animate-float">
+        🇰🇿 #1 AI платформа рекрутинга в Казахстане
+      </div>
+      
+      <h1>
+        Найдите свою <span class="highlight">идеальную работу</span> с помощью AI
+      </h1>
+      
+      <p class="hero-description">
+        Революционная платформа рекрутинга с использованием передовых AI технологий для соединения 
+        лучших талантов с ведущими компаниями Казахстана. Подбор кандидатов за секунды, наем за дни.
+      </p>
+      
+      <div class="hero-buttons">
+        <a href="pages/register.html?role=jobseeker" class="btn btn-primary btn-lg">
+          Найти работу мечты →
+        </a>
+        <a href="pages/register.html?role=employer" class="btn btn-secondary btn-lg">
+          Нанять таланты →
+        </a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">1,000+</div>
+          <div class="stat-label">Соискателей</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Компаний</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Точность</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24ч</div>
+          <div class="stat-label">Отклик</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="visual-card card-1 animate-float">
+        <div class="match-badge">96% совпадение</div>
+        <div class="candidate-info">
+          <div class="avatar">АС</div>
+          <div>
+            <div class="name">Айдар Сапаров</div>
+            <div class="title">Senior Developer</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="visual-card card-2 animate-float">
+        <div class="stat-box">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value">70%</div>
+          <div class="stat-text">Быстрее найм</div>
+        </div>
+      </div>
+      
+      <div class="visual-card card-3 animate-float">
+        <div class="ai-badge">
+          <span class="ai-icon">🤖</span>
+          <span>AI Анализ</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="analysis-text">Анализ кандидата...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Мощные AI технологии</h2>
+        <p class="section-subtitle">Всё необходимое для современного рекрутинга в одной платформе</p>
+      </div>
+      
+      <div class="grid grid-3">
+        <div class="feature-card card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Подбор</h3>
+          <p>
+            Наш интеллектуальный алгоритм автоматически анализирует навыки и рассчитывает 
+            совместимость для каждой вакансии. Знайте свои шансы мгновенно.
+          </p>
+          <div class="feature-badge">До 95% точности</div>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon">🎙️</div>
+          <h3>AI Интервью</h3>
+          <p>
+            Революционные голосовые интервью с AI оценкой в реальном времени. Мгновенная 
+            обратная связь по производительности кандидата.
+          </p>
+          <div class="feature-badge">Powered by Gemini AI</div>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon">📊</div>
+          <h3>Умные Дашборды</h3>
+          <p>
+            Красивые, интуитивные панели с аналитикой в реальном времени. Отслеживайте заявки, 
+            управляйте интервью и принимайте решения на основе данных.
+          </p>
+          <div class="feature-badge">Real-time данные</div>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon">⚡</div>
+          <h3>Молниеносно</h3>
+          <p>
+            Получайте мгновенные результаты совпадений при подаче заявки. Больше не нужно ждать 
+            дни для ответа - наш AI обрабатывает всё за миллисекунды.
+          </p>
+          <div class="feature-badge">&lt;1 сек обработки</div>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon">🔔</div>
+          <h3>Уведомления</h3>
+          <p>
+            Будьте в курсе событий с мгновенными обновлениями о заявках, приглашениях на интервью 
+            и решениях о найме. Никогда не упустите возможность.
+          </p>
+          <div class="feature-badge">Мгновенные алерты</div>
+        </div>
+        
+        <div class="feature-card card">
+          <div class="feature-icon">🇰🇿</div>
+          <h3>Для Казахстана</h3>
+          <p>
+            Разработано специально для рынка труда Казахстана с учетом местных требований, 
+            языков и бизнес-практик.
+          </p>
+          <div class="feature-badge">Местная экспертиза</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Как это работает</h2>
+        <p class="section-subtitle">Просто, быстро и эффективно - начните за 3 простых шага</p>
+      </div>
+      
+      <!-- For Job Seekers -->
+      <div class="process-container">
+        <h3 class="process-title">Для соискателей</h3>
+        <div class="grid grid-3">
+          <div class="process-step card">
+            <div class="step-number">1</div>
+            <div class="step-icon">📝</div>
+            <h4>Создайте профиль</h4>
+            <p>
+              Регистрация за 60 секунд. Добавьте навыки, опыт и карьерные цели. 
+              Наш AI сделает всё остальное.
+            </p>
+          </div>
+          
+          <div class="process-step card">
+            <div class="step-number">2</div>
+            <div class="step-icon">🎯</div>
+            <h4>Смотрите совпадения</h4>
+            <p>
+              Просматривайте вакансии, отранжированные по AI совпадению. Подавайте заявки 
+              на позиции с наивысшей совместимостью.
+            </p>
+          </div>
+          
+          <div class="process-step card">
+            <div class="step-number">3</div>
+            <div class="step-icon">🎉</div>
+            <h4>Получите работу</h4>
+            <p>
+              Проходите AI интервью и получайте мгновенную обратную связь. Получите работу 
+              мечты в рекордные сроки.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- For Employers -->
+      <div class="process-container mt-5">
+        <h3 class="process-title">Для работодателей</h3>
+        <div class="grid grid-3">
+          <div class="process-step card">
+            <div class="step-number">1</div>
+            <div class="step-icon">📢</div>
+            <h4>Разместите вакансию</h4>
+            <p>
+              Создайте детальное описание вакансии с требуемыми навыками. Публикация 
+              занимает менее 5 минут.
+            </p>
+          </div>
+          
+          <div class="process-step card">
+            <div class="step-number">2</div>
+            <div class="step-icon">👥</div>
+            <h4>Просмотрите кандидатов</h4>
+            <p>
+              Кандидаты автоматически ранжируются по AI совпадению. Сосредоточьтесь на 
+              лучших кандидатах первыми.
+            </p>
+          </div>
+          
+          <div class="process-step card">
+            <div class="step-number">3</div>
+            <div class="step-icon">✅</div>
+            <h4>Наймите с уверенностью</h4>
+            <p>
+              Используйте AI анализ интервью для принятия обоснованных решений. Сократите 
+              время найма на 70%.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="stats" class="stats-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Почему выбирают KazHR.AI?</h2>
+        <p class="section-subtitle">Цифры говорят сами за себя</p>
+      </div>
+      
+      <div class="grid grid-4">
+        <div class="stats-card card text-center">
+          <div class="stats-icon">⚡</div>
+          <div class="stats-number">70%</div>
+          <div class="stats-label">Быстрее найм</div>
+        </div>
+        
+        <div class="stats-card card text-center">
+          <div class="stats-icon">🎯</div>
+          <div class="stats-number">95%</div>
+          <div class="stats-label">Точность подбора</div>
+        </div>
+        
+        <div class="stats-card card text-center">
+          <div class="stats-icon">💰</div>
+          <div class="stats-number">50%</div>
+          <div class="stats-label">Снижение затрат</div>
+        </div>
+        
+        <div class="stats-card card text-center">
+          <div class="stats-icon">😊</div>
+          <div class="stats-number">98%</div>
+          <div class="stats-label">Довольных клиентов</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content text-center">
+        <h2>Готовы трансформировать ваш найм?</h2>
+        <p class="mt-2 mb-4">
+          Присоединяйтесь к тысячам успешных соискателей и работодателей, использующих KazHR.AI
+        </p>
+        <div class="cta-buttons">
+          <a href="pages/register.html" class="btn btn-primary btn-lg">Начать бесплатно</a>
+          <a href="pages/login.html" class="btn btn-secondary btn-lg">Войти</a>
+        </div>
+        <p class="cta-note mt-3">
+          Кредитная карта не требуется • Бесплатно навсегда • Отмена в любое время
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">KZ</div>
+            KazHR.AI
+          </div>
+          <p class="mt-2">
+            AI-платформа рекрутинга для будущего работы в Казахстане.
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Продукт</h4>
+            <a href="#features">Возможности</a>
+            <a href="#how-it-works">Как работает</a>
+            <a href="pages/register.html">Регистрация</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Компания</h4>
+            <a href="#">О нас</a>
+            <a href="#">Карьера</a>
+            <a href="#">Контакты</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Ресурсы</h4>
+            <a href="#">Блог</a>
+            <a href="#">Помощь</a>
+            <a href="#">API</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 KazHR.AI. Все права защищены.</p>
+        <p>Сделано с ❤️ в Казахстане 🇰🇿</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/api.js"></script>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/landing.js"></script>
+</body>
+</html>

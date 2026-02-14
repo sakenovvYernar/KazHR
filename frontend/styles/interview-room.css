@@ -1,0 +1,514 @@
+.join-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.join-card {
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem;
+}
+
+.join-card .card-header {
+  background: transparent;
+  border: none;
+  padding-bottom: 0;
+}
+
+.join-card h2 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.join-card p {
+  color: #6b7280;
+}
+
+.interview-room {
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.interview-header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 0;
+}
+
+.interview-info h3 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.room-code {
+  font-family: monospace;
+  font-weight: bold;
+  color: #3b82f6;
+  letter-spacing: 2px;
+}
+
+.interview-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.interview-actions {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.end-call-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.end-call-btn:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.end-call-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+}
+
+.end-call-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.end-call-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.interview-main {
+  padding: 2rem 0;
+}
+
+.video-container {
+  position: relative;
+  background: #000;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f2937;
+  color: white;
+}
+
+.video-info {
+  text-align: center;
+}
+
+.video-info .avatar {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.video-info p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+#remoteVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#localVideo {
+  position: relative;
+  z-index: 1;
+}
+
+.ai-panel {
+  background: white;
+}
+
+.analysis-placeholder {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  margin-bottom: 0.5rem;
+}
+
+.participant-avatar {
+  width: 40px;
+  height: 40px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.participant-info p {
+  margin: 0;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+}
+
+.chat-placeholder {
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem 0;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: #f3f4f6;
+}
+
+.chat-message.own {
+  background: #3b82f6;
+  color: white;
+  margin-left: 2rem;
+}
+
+.chat-message .sender {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.chat-message .time {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+}
+
+.interview-timer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.timer-display {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+#timer {
+  font-family: monospace;
+  color: #3b82f6;
+}
+
+.ai-analysis-item {
+  padding: 1rem;
+  border-left: 4px solid #10b981;
+  background: #f0fdf4;
+  margin-bottom: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.ai-analysis-item h5 {
+  margin: 0 0 0.5rem 0;
+  color: #059669;
+}
+
+.ai-analysis-item p {
+  margin: 0;
+  color: #047857;
+  font-size: 0.9rem;
+}
+
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.connection-indicators {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.indicator.active {
+  background: #10b981;
+}
+
+.indicator.inactive {
+  background: #ef4444;
+}
+
+.recording-indicator {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.recording-dot {
+  width: 12px;
+  height: 12px;
+  background: #dc2626;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.connection-status {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.connection-status.connected {
+  color: #10b981;
+}
+
+.connection-status.connecting {
+  color: #f59e0b;
+}
+
+.connection-status.disconnected {
+  color: #ef4444;
+}
+
+.transcription-panel {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.transcription-text {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.transcription-placeholder {
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+.ai-analysis-expanded {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.ai-analysis-collapsed {
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.analysis-metrics-detailed {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.metric-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.metric-change {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.metric-change.positive {
+  color: #10b981;
+}
+
+.metric-change.negative {
+  color: #ef4444;
+}
+
+.screen-share-indicator {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.quick-end-call-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  border: 3px solid white;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-end-call-btn:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.quick-end-call-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .quick-end-call-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .interview-main .grid.grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-container {
+    aspect-ratio: 4/3;
+  }
+  
+  .chat-messages {
+    height: 200px;
+  }
+  
+  .ai-metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .interview-controls {
+    flex-wrap: wrap;
+  }
+}

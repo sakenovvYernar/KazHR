@@ -1,0 +1,172 @@
+.job-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.job-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.company-name {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.job-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.job-meta-icon {
+  font-size: 1.2rem;
+}
+
+.job-section {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
+}
+
+.job-section h3 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.job-section p, .job-section li {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.job-section ul {
+  margin-left: 1.5rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.match-score {
+  background: #10b981;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.match-score-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.match-score-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.applications-section {
+  margin-top: 2rem;
+}
+
+.application-item {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.application-info h4 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.application-info p {
+  color: #6b7280;
+  margin: 0.25rem 0;
+}
+
+.application-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.employer-actions {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.employer-actions h4 {
+  color: #0369a1;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .job-header {
+    padding: 1.5rem;
+  }
+  
+  .job-title {
+    font-size: 1.5rem;
+  }
+  
+  .job-meta {
+    gap: 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .application-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .application-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

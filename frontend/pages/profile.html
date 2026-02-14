@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мой профиль - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/profile.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="flex-between">
+        <div class="logo">
+          <h2>🚀 KazHR.AI</h2>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <button onclick="utils.logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="profile-header mb-4">
+      <h1>Мой профиль</h1>
+      <p class="text-secondary">Управление вашей информацией и резюме</p>
+    </div>
+
+    <div class="grid grid-3">
+      <!-- Profile Info -->
+      <div class="col-2">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="card-title">Личная информация</h3>
+            <button onclick="toggleEditMode()" class="btn btn-sm btn-outline" id="editBtn">
+              Редактировать
+            </button>
+          </div>
+          <div class="card-body">
+            <form id="profileForm">
+              <div class="form-group">
+                <label id="nameLabel">Имя</label>
+                <input type="text" id="name" class="form-control" disabled>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email" class="form-control" disabled>
+              </div>
+              <div class="form-group">
+                <label>Телефон</label>
+                <input type="tel" id="phone" class="form-control" disabled>
+              </div>
+              <div class="form-group">
+                <label>Город</label>
+                <input type="text" id="location" class="form-control" disabled>
+              </div>
+              <div class="form-group">
+                <label id="bioLabel">О себе</label>
+                <textarea id="bio" class="form-control" rows="3" disabled></textarea>
+              </div>
+              <div class="form-actions" id="formActions" style="display: none;">
+                <button type="button" onclick="saveProfile()" class="btn btn-primary">Сохранить</button>
+                <button type="button" onclick="cancelEdit()" class="btn btn-outline">Отмена</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Резюме</h3>
+            <button onclick="toggleResumeEditMode()" class="btn btn-sm btn-outline" id="resumeEditBtn">
+              Редактировать
+            </button>
+          </div>
+          <div class="card-body">
+            <form id="resumeForm">
+              <div class="form-group">
+                <label>Опыт работы</label>
+                <div id="experienceContainer">
+                  <div class="experience-item mb-3">
+                    <input type="text" placeholder="Должность" class="form-control mb-2" disabled>
+                    <input type="text" placeholder="Компания" class="form-control mb-2" disabled>
+                    <input type="text" placeholder="Период (например: 2020-2023)" class="form-control" disabled>
+                  </div>
+                </div>
+                <button type="button" onclick="addExperienceField()" class="btn btn-sm btn-outline" id="addExpBtn" style="display: none;">
+                  + Добавить опыт
+                </button>
+              </div>
+              
+              <div class="form-group">
+                <label>Образование</label>
+                <div id="educationContainer">
+                  <div class="education-item mb-3">
+                    <input type="text" placeholder="Учебное заведение" class="form-control mb-2" disabled>
+                    <input type="text" placeholder="Специальность" class="form-control mb-2" disabled>
+                    <input type="text" placeholder="Год окончания" class="form-control" disabled>
+                  </div>
+                </div>
+                <button type="button" onclick="addEducationField()" class="btn btn-sm btn-outline" id="addEduBtn" style="display: none;">
+                  + Добавить образование
+                </button>
+              </div>
+
+              <div class="form-group">
+                <label>Навыки</label>
+                <textarea id="skills" class="form-control" rows="3" placeholder="JavaScript, React, Node.js..." disabled></textarea>
+              </div>
+
+              <div class="form-actions" id="resumeFormActions" style="display: none;">
+                <button type="button" onclick="saveResume()" class="btn btn-primary">Сохранить</button>
+                <button type="button" onclick="cancelResumeEdit()" class="btn btn-outline">Отмена</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications Panel -->
+      <div class="col-1">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Уведомления</h3>
+            <span class="badge badge-primary" id="notificationCount">0</span>
+          </div>
+          <div class="card-body">
+            <div id="notificationsContainer">
+              <div class="empty-state text-center p-4">
+                <p class="text-secondary">Нет новых уведомлений</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/video-call-nav.js"></script>
+  <script src="../scripts/profile.js"></script>
+</body>
+</html>

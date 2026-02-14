@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card card">
+      <div class="auth-header text-center">
+        <div class="logo mb-3">
+          <div class="logo-icon">KZ</div>
+          KazHR.AI
+        </div>
+        <h2>Добро пожаловать!</h2>
+        <p>Войдите, чтобы продолжить</p>
+      </div>
+
+      <div id="alert-container"></div>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            placeholder="your@email.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Пароль</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            placeholder="Введите пароль"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg mt-3">
+          Войти
+        </button>
+      </form>
+
+      <div class="auth-footer text-center mt-4">
+        <p>Нет аккаунта? <a href="register.html" class="text-orange font-semibold">Регистрация</a></p>
+        <p class="mt-2"><a href="../index.html" class="text-gray">← На главную</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/login.js"></script>
+</body>
+</html>

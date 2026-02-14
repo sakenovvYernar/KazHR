@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои объявления - KazHR.AI</title>
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/jobs.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="flex-between">
+        <div class="logo">
+          <h2>🚀 KazHR.AI</h2>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="profile.html">Компания</a>
+          <button onclick="utils.logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="page-header mb-4">
+      <h1>Мои объявления</h1>
+      <p>Управление вашими вакансиями</p>
+      <div class="header-actions">
+        <button onclick="window.location.href='create-job.html'" class="btn btn-primary">
+          + Создать новое объявление
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-4 mb-4">
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="activeJobsCount">0</div>
+        <div class="stat-label">Активные вакансии</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="totalApplicationsCount">0</div>
+        <div class="stat-label">Всего откликов</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="interviewsCount">0</div>
+        <div class="stat-label">Интервью</div>
+      </div>
+      <div class="stat-card card text-center">
+        <div class="stat-number" id="closedJobsCount">0</div>
+        <div class="stat-label">Закрыто вакансий</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="filter-controls">
+          <select id="statusFilter" class="form-control" onchange="filterJobs()">
+            <option value="">Все статусы</option>
+            <option value="active">Активные</option>
+            <option value="closed">Закрытые</option>
+            <option value="draft">Черновики</option>
+          </select>
+          <input type="text" id="searchInput" class="form-control" placeholder="Поиск по названию..." onkeyup="filterJobs()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Jobs Container -->
+    <div id="jobsContainer">
+      <div class="text-center p-4">
+        <div class="spinner mx-auto"></div>
+        <p class="mt-2">Загрузка объявлений...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="../scripts/video-call-nav.js"></script>
+  <script src="../scripts/my-jobs.js"></script>
+</body>
+</html>
